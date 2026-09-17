@@ -77,11 +77,11 @@ export default function CreateRequestForm({ onRequestCreated }: CreateRequestFor
         dateOfBirth: newPatientDob,
         preferredLanguage: 'en'
       });
-      setPatients([...patients, res.data]);
-      setPatientId(res.data.id.toString());
       setNewPatientName('');
       setNewPatientDob('');
       setShowNewPatient(false);
+      await loadData();
+      setPatientId(res.data.id.toString());
     } catch (error) {
       console.error('Failed to create patient', error);
     }
@@ -99,13 +99,13 @@ export default function CreateRequestForm({ onRequestCreated }: CreateRequestFor
         email: newProviderEmail,
         timezone: 'UTC'
       });
-      setProviders([...providers, res.data]);
-      setProviderId(res.data.id.toString());
       setNewProviderName('');
       setNewProviderOrg('');
       setNewProviderCountry('');
       setNewProviderEmail('');
       setShowNewProvider(false);
+      await loadData();
+      setProviderId(res.data.id.toString());
     } catch (error) {
       console.error('Failed to create provider', error);
     }
