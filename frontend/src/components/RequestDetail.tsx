@@ -14,7 +14,6 @@ export default function RequestDetail({ request, onClose }: RequestDetailProps) 
   useEffect(() => {
     const loadAttempts = async () => {
       try {
-        setLoading(true);
         const response = await getOutreachAttempts(request.id);
         setAttempts(response.data);
       } catch (error) {

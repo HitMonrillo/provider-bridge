@@ -11,7 +11,6 @@ export default function RequestList() {
 
   const loadRequests = async () => {
     try {
-      setLoading(true);
       const response = await getRequests();
       setRequests(response.data);
     } catch (error) {
